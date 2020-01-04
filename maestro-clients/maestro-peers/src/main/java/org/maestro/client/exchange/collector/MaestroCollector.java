@@ -14,9 +14,14 @@
  *  limitations under the License.
  */
 
-package org.maestro.client.exchange;
+package org.maestro.client.exchange.collector;
 
+import org.maestro.client.Collector;
 import org.maestro.client.callback.MaestroNoteCallback;
+import org.maestro.client.exchange.IgnoreCallback;
+import org.maestro.client.exchange.MaestroDeserializer;
+import org.maestro.client.exchange.MaestroMonitor;
+import org.maestro.client.exchange.peer.AbstractMaestroPeer;
 import org.maestro.client.exchange.support.CollectorPeer;
 import org.maestro.common.client.notes.MaestroNote;
 import org.maestro.common.exceptions.MaestroConnectionException;
@@ -35,7 +40,7 @@ import java.util.function.Predicate;
  * An specialized peer that is used on the front-end side of the code
  * to collect messages published on front-end related topics
  */
-public class MaestroCollector extends AbstractMaestroPeer<MaestroNote> {
+public class MaestroCollector extends AbstractMaestroPeer<MaestroNote> implements Collector {
     private static final Logger logger = LoggerFactory.getLogger(MaestroCollector.class);
     private volatile boolean running = true;
 

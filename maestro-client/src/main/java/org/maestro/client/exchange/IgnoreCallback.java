@@ -25,7 +25,7 @@ import org.maestro.common.client.notes.MaestroNote;
  * Certain message types are not meant for the client and can be safely ignored. This
  * callback discards them.
  */
-class IgnoreCallback implements MaestroNoteCallback {
+public class IgnoreCallback implements MaestroNoteCallback {
     @Override
     public boolean call(MaestroNote note) {
         if (note instanceof TestStartedNotification) {

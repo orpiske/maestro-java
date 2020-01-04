@@ -29,6 +29,7 @@ import org.maestro.worker.tests.support.runner.WorkerTestRunner;
 import org.junit.*;
 import org.junit.runner.RunWith;
 
+@Ignore
 @SuppressWarnings("unused")
 @RunWith(WorkerTestRunner.class)
 @Provider(

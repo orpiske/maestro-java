@@ -46,6 +46,12 @@
         </dependency>
 
         <dependency>
+            <groupId>org.maestro</groupId>
+            <artifactId>maestro-peers</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <dependency>
             <groupId>net.orpiske</groupId>
             <artifactId>jms-test-provider-activemq</artifactId>
             <scope>test</scope>

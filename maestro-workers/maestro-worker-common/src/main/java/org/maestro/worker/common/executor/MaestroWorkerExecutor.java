@@ -16,11 +16,11 @@
 
 package org.maestro.worker.common.executor;
 
-import org.maestro.client.exchange.AbstractMaestroExecutor;
-import org.maestro.client.exchange.AbstractMaestroPeer;
+import org.maestro.client.exchange.peer.AbstractMaestroPeer;
 import org.maestro.client.exchange.support.PeerInfo;
 import org.maestro.client.notes.MaestroEvent;
 import org.maestro.client.notes.MaestroEventListener;
+import org.maestro.common.client.exchange.AbstractMaestroExecutor;
 import org.maestro.common.exceptions.MaestroException;
 import org.maestro.worker.common.ConcurrentWorkerManager;
 import org.slf4j.Logger;

@@ -43,7 +43,7 @@ import java.util.concurrent.TimeoutException;
 
 import static org.junit.Assert.assertEquals;
 
-
+@Ignore
 @RunWith(WorkerTestRunner.class)
 @Provider(
         value = ActiveMqProvider.class,

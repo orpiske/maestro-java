@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-package org.maestro.client.exchange;
+package org.maestro.client.exchange.mqtt;
 
 import org.eclipse.paho.client.mqttv3.MqttClient;
 import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
 import org.eclipse.paho.client.mqttv3.MqttException;
 import org.eclipse.paho.client.mqttv3.MqttTopic;
 import org.maestro.client.callback.MaestroNoteCallback;
-import org.maestro.client.exchange.mqtt.MqttClientInstance;
+import org.maestro.common.client.ServiceLevel;
 import org.maestro.common.client.MaestroClient;
 import org.maestro.common.client.exceptions.MalformedNoteException;
 import org.maestro.common.client.notes.MaestroNote;
@@ -187,7 +187,12 @@ public class MaestroMqttClient implements MaestroClient {
      * @throws MalformedNoteException     in case of other I/O errors
      */
     public void publish(final String topic, final MaestroNote note) throws MalformedNoteException, MaestroConnectionException {
-        publish(topic, note, MqttServiceLevel.AT_LEAST_ONCE, false);
+        publish(topic, note, ServiceLevel.AT_LEAST_ONCE.getLevel(), false);
+    }
+
+    @Override
+    public void publish(String topic, MaestroNote note, ServiceLevel serviceLevel) throws MalformedNoteException, MaestroConnectionException {
+        publish(topic, note, serviceLevel.getLevel(), false);
     }
 
     /**

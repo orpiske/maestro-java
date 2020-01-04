@@ -15,13 +15,23 @@
  *
  */
 
-package org.maestro.client.exchange;
+package org.maestro.common.client;
 
 /**
- * Service levels for MQTT
+ * Service levels
  */
-public class MqttServiceLevel {
-    public static final int AT_MOST_ONCE = 0;
-    public static final int AT_LEAST_ONCE = 1;
-    public static final int EXACTLY_ONCE = 2;
+public enum ServiceLevel {
+    AT_MOST_ONCE(0),
+    AT_LEAST_ONCE(1),
+    EXACTLY_ONCE(2);
+
+    private final int level;
+
+    ServiceLevel(int level) {
+        this.level = level;
+    }
+
+    public int getLevel() {
+        return level;
+    }
 }
