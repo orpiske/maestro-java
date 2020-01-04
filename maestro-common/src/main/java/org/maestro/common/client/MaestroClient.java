@@ -49,6 +49,15 @@ public interface MaestroClient {
      */
     void publish(final String topic, final MaestroNote note) throws MalformedNoteException, MaestroConnectionException;
 
-
+    /**
+     * Publishes a message in the broker
+     *
+     * @param topic the topic to publish the message
+     * @param note  the maestro note to publish
+     * @param serviceLevel the service level (when applicable)
+     * @throws MaestroConnectionException if failed to publish the message
+     * @throws MalformedNoteException     in case of other I/O errors
+     */
+    void publish(final String topic, final MaestroNote note, ServiceLevel serviceLevel) throws MalformedNoteException, MaestroConnectionException;
 
 }

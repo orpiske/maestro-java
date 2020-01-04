@@ -14,9 +14,13 @@
  *  limitations under the License.
  */
 
-package org.maestro.client.exchange;
+package org.maestro.client.exchange.collector;
 
 import org.maestro.client.callback.MaestroNoteCallback;
+import org.maestro.client.exchange.IgnoreCallback;
+import org.maestro.client.exchange.MaestroDeserializer;
+import org.maestro.client.exchange.MaestroMonitor;
+import org.maestro.client.exchange.peer.AbstractMaestroPeer;
 import org.maestro.client.exchange.support.CollectorPeer;
 import org.maestro.common.client.notes.MaestroNote;
 import org.maestro.common.exceptions.MaestroConnectionException;

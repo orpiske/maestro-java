@@ -14,8 +14,9 @@
  * limitations under the License.
  */
 
-package org.maestro.client.exchange;
+package org.maestro.client.exchange.peer;
 
+import org.maestro.common.client.ServiceLevel;
 import org.maestro.common.client.notes.MaestroNote;
 import org.maestro.common.exceptions.MaestroConnectionException;
 import org.slf4j.Logger;
@@ -66,7 +67,8 @@ public class AbstractMaestroExecutor implements Runnable {
             logger.error("Trying to subscribe to a null topic");
         }
         else {
-            maestroPeer.subscribe(topics, MqttServiceLevel.AT_LEAST_ONCE);
+//            maestroPeer.subscribe(topics, ServiceLevel.AT_LEAST_ONCE);
+            maestroPeer.subscribe(topics);
         }
     }
 

@@ -14,8 +14,10 @@
  *  limitations under the License.
  */
 
-package org.maestro.client.exchange;
+package org.maestro.client.exchange.collector;
 
+import org.maestro.client.exchange.peer.AbstractMaestroExecutor;
+import org.maestro.client.exchange.MaestroTopics;
 import org.maestro.common.exceptions.MaestroConnectionException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
