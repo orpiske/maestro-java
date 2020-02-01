@@ -16,11 +16,11 @@
 
 package org.maestro.worker.common;
 
-import org.maestro.client.MaestroReceiverClient;
-import org.maestro.client.exchange.AbstractMaestroPeer;
 import org.maestro.client.exchange.MaestroDeserializer;
 import org.maestro.client.exchange.MaestroNoteDeserializer;
 import org.maestro.client.exchange.MaestroTopics;
+import org.maestro.client.exchange.peer.AbstractMaestroPeer;
+import org.maestro.client.exchange.receiver.MaestroReceiverClient;
 import org.maestro.client.exchange.support.GroupInfo;
 import org.maestro.client.exchange.support.PeerInfo;
 import org.maestro.client.notes.*;
@@ -95,7 +95,7 @@ public abstract class MaestroWorkerManager extends AbstractMaestroPeer<MaestroEv
     public void connect() throws MaestroConnectionException {
         super.connect();
 
-        client.connect();
+//        client.connect();
     }
 
 
@@ -403,7 +403,7 @@ public abstract class MaestroWorkerManager extends AbstractMaestroPeer<MaestroEv
             }
 
             locationTypeInfo.setIndex(index);
-            MaestroReceiverClient.logResponse(file, note, hash, locationTypeInfo, peerInfo, getId(), getClient());
+//            MaestroReceiverClient.logResponse(file, note, hash, locationTypeInfo, peerInfo, getId(), getClient());
             index++;
         }
     }
@@ -421,7 +421,7 @@ public abstract class MaestroWorkerManager extends AbstractMaestroPeer<MaestroEv
         }
 
         final String topicName = MaestroTopics.peerTopic(requested);
-        getClient().subscribe(topicName, 0);
+//        getClient().subscribe(topicName, 0);
         this.groupInfo = requested;
 
         logger.info("Successfully joined group {} as {}", groupInfo.groupName(), groupInfo.memberName());
@@ -439,7 +439,7 @@ public abstract class MaestroWorkerManager extends AbstractMaestroPeer<MaestroEv
         }
 
         final String peerTopics = MaestroTopics.peerTopic(groupInfo);
-        getClient().unsubscribe(peerTopics);
+//        getClient().unsubscribe(peerTopics);
 
         final  GroupInfo old = groupInfo;
         groupInfo = null;
@@ -460,7 +460,7 @@ public abstract class MaestroWorkerManager extends AbstractMaestroPeer<MaestroEv
         }
 
         String roleTopic = MaestroTopics.peerTopic(role);
-        getClient().subscribe(roleTopic, 0);
+//        getClient().subscribe(roleTopic, 0);
         logger.debug("Subscribed to the role topic at {}", roleTopic);
 
         logger.info("The worker was assigned the {} role", role);
@@ -473,7 +473,7 @@ public abstract class MaestroWorkerManager extends AbstractMaestroPeer<MaestroEv
         try {
             if (getPeerInfo().getRole() != Role.OTHER) {
                 final String roleTopic = MaestroTopics.peerTopic(getPeerInfo().getRole());
-                getClient().unsubscribe(roleTopic);
+//                getClient().unsubscribe(roleTopic);
                 logger.debug("Unsubscribed to the role topic at {}", roleTopic);
             }
         } finally {

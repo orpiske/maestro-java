@@ -14,9 +14,8 @@
  * limitations under the License.
  */
 
-package org.maestro.client.exchange.peer;
+package org.maestro.common.client.exchange;
 
-import org.maestro.common.client.ServiceLevel;
 import org.maestro.common.client.notes.MaestroNote;
 import org.maestro.common.exceptions.MaestroConnectionException;
 import org.slf4j.Logger;
@@ -34,14 +33,14 @@ import java.util.concurrent.locks.ReentrantLock;
 public class AbstractMaestroExecutor implements Runnable {
     private static final Logger logger = LoggerFactory.getLogger(AbstractMaestroExecutor.class);
 
-    private final AbstractMaestroPeer<? extends MaestroNote> maestroPeer;
+    private final MaestroPeer maestroPeer;
 
     /**
      * Constructor
      * @param maestroPeer a Maestro peer object is capable of exchange maestro data.
      * @throws MaestroConnectionException if unable to connect or subscribe
      */
-    protected AbstractMaestroExecutor(final AbstractMaestroPeer<? extends MaestroNote> maestroPeer) throws MaestroConnectionException {
+    protected AbstractMaestroExecutor(final MaestroPeer maestroPeer) throws MaestroConnectionException {
         this.maestroPeer = maestroPeer;
     }
 
@@ -50,7 +49,7 @@ public class AbstractMaestroExecutor implements Runnable {
      * Get the Maestro peer
      * @return the maestro peer object
      */
-    protected AbstractMaestroPeer<? extends MaestroNote> getMaestroPeer() {
+    protected MaestroPeer getMaestroPeer() {
         return maestroPeer;
     }
 
@@ -67,7 +66,6 @@ public class AbstractMaestroExecutor implements Runnable {
             logger.error("Trying to subscribe to a null topic");
         }
         else {
-//            maestroPeer.subscribe(topics, ServiceLevel.AT_LEAST_ONCE);
             maestroPeer.subscribe(topics);
         }
     }

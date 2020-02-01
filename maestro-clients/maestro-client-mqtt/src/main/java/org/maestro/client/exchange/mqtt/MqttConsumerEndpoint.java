@@ -135,7 +135,7 @@ public class MqttConsumerEndpoint<T extends MaestroNote> implements ConsumerEndp
     }
 
     public void subscribe(final String[] topics) throws MaestroConnectionException {
-        subscribe(topics, ServiceLevel.AT_LEAST_ONCE);
+        subscribe(topics, ServiceLevel.AT_LEAST_ONCE.getLevel());
     }
 
     private void handleMessage(String s, byte[] payload) {

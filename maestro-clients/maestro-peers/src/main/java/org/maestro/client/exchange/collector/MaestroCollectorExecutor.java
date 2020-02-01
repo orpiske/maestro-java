@@ -16,7 +16,7 @@
 
 package org.maestro.client.exchange.collector;
 
-import org.maestro.client.exchange.peer.AbstractMaestroExecutor;
+import org.maestro.common.client.exchange.AbstractMaestroExecutor;
 import org.maestro.client.exchange.MaestroTopics;
 import org.maestro.common.exceptions.MaestroConnectionException;
 import org.slf4j.Logger;

@@ -234,7 +234,7 @@ public class MaestroAgent extends MaestroWorkerManager implements MaestroAgentEv
         } catch (Exception e) {
             e.printStackTrace();
             logger.error("Error during callback execution: {}", e.getMessage(), e);
-            this.getClient().publish(MaestroTopics.MAESTRO_TOPIC, new InternalError(e.getMessage()));
+//            this.getClient().publish(MaestroTopics.MAESTRO_TOPIC, new InternalError(e.getMessage()));
         }
     }
 

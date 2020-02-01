@@ -17,8 +17,8 @@
 
 package org.maestro.reports.server.collector;
 
-import org.maestro.client.MaestroReceiverClient;
 import org.maestro.client.exchange.MaestroTopics;
+import org.maestro.client.exchange.receiver.MaestroReceiverClient;
 import org.maestro.client.exchange.support.PeerInfo;
 import org.maestro.client.notes.*;
 import org.maestro.common.ErrorUtils;
@@ -112,7 +112,7 @@ public class ReportCollectorWorker {
         request.correlate(note);
 
         try {
-            client.publish(topic, request);
+//            client.publish(topic, request);
         } catch (Exception e) {
             logger.error("Unable to publish the OK response {}", e.getMessage(), e);
         }

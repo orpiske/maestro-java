@@ -111,7 +111,8 @@ public class WorkerTestRunner extends JmsTestRunner {
     private void injectMaestroPeer(Object o, Field f, MaestroPeer peer) throws Exception {
         logger.info("Injecting a receiving peer into the test object");
 
-        Maestro maestro = new Maestro(peer.maestroUrl());
+//        Maestro maestro = new Maestro(peer.maestroUrl());
+        Maestro maestro = null;
 
         maestroClientPeers.add(maestro);
 

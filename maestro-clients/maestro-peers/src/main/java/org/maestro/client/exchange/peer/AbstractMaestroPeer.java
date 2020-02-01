@@ -20,6 +20,7 @@ import org.maestro.client.exchange.ConsumerEndpoint;
 import org.maestro.client.exchange.MaestroNoteDeserializer;
 import org.maestro.client.exchange.mqtt.MqttConsumerEndpoint;
 import org.maestro.client.exchange.support.PeerInfo;
+import org.maestro.common.client.exchange.MaestroPeer;
 import org.maestro.common.client.notes.MaestroNote;
 import org.maestro.common.exceptions.MaestroConnectionException;
 import org.slf4j.Logger;
@@ -35,7 +36,7 @@ import org.slf4j.LoggerFactory;
  *
  * TODO: configure LWT
  */
-public abstract class AbstractMaestroPeer<T extends MaestroNote> {
+public abstract class AbstractMaestroPeer<T extends MaestroNote> implements MaestroPeer {
     private static final Logger logger = LoggerFactory.getLogger(AbstractMaestroPeer.class);
 
     private ConsumerEndpoint consumerEndpoint;

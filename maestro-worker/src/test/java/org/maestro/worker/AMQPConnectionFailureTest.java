@@ -20,6 +20,7 @@ import net.orpiske.jms.provider.activemq.ActiveMqProvider;
 import net.orpiske.jms.test.annotations.Provider;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.maestro.client.Maestro;
@@ -34,9 +35,8 @@ import org.maestro.worker.tests.support.runner.MiniPeer;
 import org.maestro.worker.tests.support.runner.WorkerTestRunner;
 
 import java.util.List;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.TimeoutException;
 
+@Ignore
 @SuppressWarnings("unused")
 @RunWith(WorkerTestRunner.class)
 @Provider(
