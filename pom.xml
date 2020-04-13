@@ -58,6 +58,7 @@
         <version.jgit>4.5.4.201711221230-r</version.jgit>
         <version.netty>4.1.32.Final</version.netty>
         <version.jolokia-client>2.0.0-M3</version.jolokia-client>
+        <version.jetcd>0.5.0</version.jetcd>
 
 
         <!-- JMS clients -->
@@ -329,6 +330,12 @@
                 <version>${version.jolokia-client}</version>
             </dependency>
 
+            <dependency>
+                <groupId>io.etcd</groupId>
+                <artifactId>jetcd-core</artifactId>
+                <version>${version.jetcd}</version>
+            </dependency>
+
             <!-- JMS clients -->
             <dependency>
                 <groupId>org.apache.qpid</groupId>
@@ -379,13 +386,6 @@
                 <artifactId>jms-test-provider-activemq</artifactId>
                 <version>${version.jms-test-util}</version>
                 <type>test-jar</type>
-                <scope>test</scope>
-            </dependency>
-
-            <dependency>
-                <groupId>net.orpiske</groupId>
-                <artifactId>jms-test-provider-activemq</artifactId>
-                <version>${version.jms-test-util}</version>
                 <scope>test</scope>
             </dependency>
 
