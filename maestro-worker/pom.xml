@@ -84,32 +84,6 @@
         </dependency>
 
         <dependency>
-            <groupId>net.orpiske</groupId>
-            <artifactId>jms-test-util</artifactId>
-            <scope>test</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>net.orpiske</groupId>
-            <artifactId>jms-test-util</artifactId>
-            <type>test-jar</type>
-            <scope>test</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>net.orpiske</groupId>
-            <artifactId>jms-test-provider-activemq</artifactId>
-            <type>test-jar</type>
-            <scope>test</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>net.orpiske</groupId>
-            <artifactId>jms-test-provider-activemq</artifactId>
-            <scope>test</scope>
-        </dependency>
-
-        <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <scope>test</scope>

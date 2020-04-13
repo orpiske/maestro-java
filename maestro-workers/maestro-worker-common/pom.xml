@@ -52,9 +52,8 @@
         </dependency>
 
         <dependency>
-            <groupId>net.orpiske</groupId>
-            <artifactId>jms-test-provider-activemq</artifactId>
-            <scope>test</scope>
+            <groupId>io.etcd</groupId>
+            <artifactId>jetcd-core</artifactId>
         </dependency>
 
         <dependency>

@@ -23,6 +23,7 @@ import org.maestro.client.exchange.support.WorkerPeer;
 import org.maestro.common.*;
 import org.maestro.common.exceptions.MaestroException;
 import org.maestro.worker.common.ConcurrentWorkerManager;
+import org.maestro.worker.common.WorkerNG;
 import org.maestro.worker.common.executor.MaestroWorkerExecutor;
 
 import java.io.File;
@@ -130,17 +131,21 @@ public class MaestroWorkerMain {
                 name = "worker";
             }
 
-            final PeerInfo peerInfo = new WorkerPeer(name, host);
+            WorkerNG workerNG = new WorkerNG();
 
-            ConcurrentWorkerManager maestroPeer = new ConcurrentWorkerManager(maestroUrl, peerInfo, logDir);
-            executor = new MaestroWorkerExecutor(maestroPeer);
+            workerNG.run();
 
-            String[] topics = MaestroTopics.peerTopics(maestroPeer.getId());
-
-            executor.start(topics, 10, 1000);
-            executor.run();
-
-            System.out.println("Finished execution ...");
+//            final PeerInfo peerInfo = new WorkerPeer(name, host);
+//
+//            ConcurrentWorkerManager maestroPeer = new ConcurrentWorkerManager(maestroUrl, peerInfo, logDir);
+//            executor = new MaestroWorkerExecutor(maestroPeer);
+//
+//            String[] topics = MaestroTopics.peerTopics(maestroPeer.getId());
+//
+//            executor.start(topics, 10, 1000);
+//            executor.run();
+//
+//            System.out.println("Finished execution ...");
         } catch (MaestroException e) {
             System.err.println(e.getMessage());
             e.printStackTrace();

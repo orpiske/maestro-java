@@ -79,20 +79,6 @@
 
         <!-- Tests dependencies -->
         <dependency>
-            <groupId>net.orpiske</groupId>
-            <artifactId>jms-test-provider-activemq</artifactId>
-            <type>test-jar</type>
-            <scope>test</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>net.orpiske</groupId>
-            <artifactId>jms-test-provider-activemq</artifactId>
-            <scope>test</scope>
-        </dependency>
-
-
-        <dependency>
             <groupId>org.maestro</groupId>
             <artifactId>maestro-worker-common</artifactId>
             <version>${project.version}</version>
