@@ -4,12 +4,20 @@ import io.etcd.jetcd.ByteSequence;
 import io.etcd.jetcd.Client;
 import io.etcd.jetcd.Watch;
 import io.etcd.jetcd.watch.WatchEvent;
+import org.maestro.client.exchange.support.PeerInfo;
 
 import java.nio.charset.StandardCharsets;
 import java.util.Optional;
 import java.util.concurrent.CountDownLatch;
 
 public class WorkerNG {
+    private final PeerInfo peerInfo;
+    private final String endpoints;
+
+    public WorkerNG(PeerInfo peerInfo, final String endpoints) {
+        this.peerInfo = peerInfo;
+        this.endpoints = endpoints;
+    }
 
 
     public void run() {
@@ -29,7 +37,7 @@ public class WorkerNG {
 
         ByteSequence key = ByteSequence.from("worker", StandardCharsets.UTF_8);
 
-        try (Client client = Client.builder().endpoints("http://localhost:2379").build();
+        try (Client client = Client.builder().endpoints(endpoints).build();
             Watch watch = client.getWatchClient();
             Watch.Watcher watcher = watch.watch(key, listener)) {
                 latch.await();

@@ -17,12 +17,10 @@
 package org.maestro.worker.main;
 
 import org.apache.commons.cli.*;
-import org.maestro.client.exchange.MaestroTopics;
 import org.maestro.client.exchange.support.PeerInfo;
 import org.maestro.client.exchange.support.WorkerPeer;
 import org.maestro.common.*;
 import org.maestro.common.exceptions.MaestroException;
-import org.maestro.worker.common.ConcurrentWorkerManager;
 import org.maestro.worker.common.WorkerNG;
 import org.maestro.worker.common.executor.MaestroWorkerExecutor;
 
@@ -33,7 +31,7 @@ import java.net.UnknownHostException;
 public class MaestroWorkerMain {
     private static CommandLine cmdLine;
 
-    private static String maestroUrl;
+    private static String endpoint;
     private static String host;
     private static File logDir;
 
@@ -56,8 +54,8 @@ public class MaestroWorkerMain {
         Options options = new Options();
 
         options.addOption("h", "help", false, "prints the help");
-        options.addOption("m", "maestro-url", true,
-                "maestro URL to connect to");
+        options.addOption("e", "endpoint", true,
+                "etcd endpoint to connect to");
         options.addOption("H", "host", true,
                 "optional hostname (to override auto-detection)");
         options.addOption("l", "log-dir", true, "log directory");
@@ -72,9 +70,9 @@ public class MaestroWorkerMain {
             help(options, 0);
         }
 
-        maestroUrl = cmdLine.getOptionValue('m');
-        if (maestroUrl == null) {
-            System.err.println("Maestro URL is missing (option -m)");
+        endpoint = cmdLine.getOptionValue('e');
+        if (endpoint == null) {
+            System.err.println("Etcd endpoint is missing (option -e)");
             help(options, -1);
         }
 
@@ -131,11 +129,12 @@ public class MaestroWorkerMain {
                 name = "worker";
             }
 
-            WorkerNG workerNG = new WorkerNG();
+            final PeerInfo peerInfo = new WorkerPeer(name, host);
+
+            WorkerNG workerNG = new WorkerNG(peerInfo, endpoint);
 
             workerNG.run();
 
-//            final PeerInfo peerInfo = new WorkerPeer(name, host);
 //
 //            ConcurrentWorkerManager maestroPeer = new ConcurrentWorkerManager(maestroUrl, peerInfo, logDir);
 //            executor = new MaestroWorkerExecutor(maestroPeer);
