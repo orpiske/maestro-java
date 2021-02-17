@@ -16,19 +16,25 @@
 
 package org.maestro.worker;
 
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+
 import org.maestro.client.Maestro;
 import org.maestro.client.exchange.MaestroTopics;
 import org.maestro.client.notes.DrainCompleteNotification;
 import org.maestro.client.notes.MaestroNotification;
 import org.maestro.client.notes.TestFailedNotification;
 import org.maestro.client.notes.TestSuccessfulNotification;
-import org.maestro.common.LogConfigurator;
 import org.maestro.common.Role;
-import org.maestro.common.client.notes.*;
+import org.maestro.common.client.notes.MaestroCommand;
+import org.maestro.common.client.notes.MaestroNote;
+import org.maestro.common.client.notes.MaestroNoteType;
+import org.maestro.common.client.notes.SutDetails;
+import org.maestro.common.client.notes.Test;
+import org.maestro.common.client.notes.TestExecutionInfo;
+import org.maestro.common.client.notes.TestExecutionInfoBuilder;
+import org.maestro.common.client.notes.WorkerStartOptions;
 import org.maestro.worker.tests.support.common.EndToEndTest;
-
-import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -42,7 +48,6 @@ public abstract class AbstractProtocolTest extends EndToEndTest {
 
     protected void setupMaestroConnectionProperties() {
         System.out.println("This test will take some time to run");
-        LogConfigurator.verbose();
         System.setProperty("maestro.mqtt.no.reuse", "true");
     }
 
